@@ -3,6 +3,10 @@
   "pilot_instances": 30,
   "annotators": 3,
   "expected_judgments": 90,
+  "study_version": "requester-minimal-pairs-v3-pilot-rerun-20260719",
+  "prior_pilot_labels_disposition": "excluded_from_rerun_analysis_but_retained_for_audit",
+  "required_comprehension_score": 5,
+  "estimated_minutes": "45-60",
   "family_base_counts": {
     "department_invariance": 2,
     "full_vs_none": 2,
