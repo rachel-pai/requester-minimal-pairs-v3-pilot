@@ -5,8 +5,8 @@ Browser-based independent annotation rerun for three complete Prolific participa
 - reads `PROLIFIC_PID`, `STUDY_ID`, and `SESSION_ID` from Prolific URL parameters;
 - signs each participant into Firebase anonymously;
 - saves consent, each judgment, and completion state to Cloud Firestore;
-- keeps a local browser recovery copy and offers a CSV backup;
-- redirects completed participants to Prolific completion code `C1HLTWWJ`;
+- keeps a local browser recovery copy for interrupted-session recovery;
+- automatically redirects participants after the 30th Firebase save to Prolific completion code `C1HLTWWJ`;
 - requires a perfect six-question, page-by-page comprehension check before the real cases;
 - warns about internally inconsistent judgment/action combinations;
 - requires the four judgment fields, action, and confidence; evidence and rationale are optional;
@@ -39,3 +39,11 @@ https://rachel-pai.github.io/requester-minimal-pairs-v3-pilot/?PROLIFIC_PID={{%P
 ```
 
 Do not publish annotator CSVs or anything under `private_do_not_share`.
+
+The completion redirect is:
+
+```text
+https://app.prolific.com/submissions/complete?cc=C1HLTWWJ
+```
+
+There is no participant-facing download step. The final response and participant completion record must both save successfully to Firebase before this redirect runs.
