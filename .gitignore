@@ -1,0 +1,6 @@
+.DS_Store
+.firebase/
+firebase-debug.log
+private_do_not_share/
+annotator_*.csv
+

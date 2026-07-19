@@ -1,0 +1,16 @@
+{
+  "pilot_base_cases": 15,
+  "pilot_instances": 30,
+  "annotators": 3,
+  "expected_judgments": 90,
+  "family_base_counts": {
+    "department_invariance": 2,
+    "full_vs_none": 2,
+    "full_vs_partial": 3,
+    "identity_resolution": 3,
+    "preference_invariance": 3,
+    "purpose_flip": 2
+  },
+  "human_pilot_complete": false,
+  "seed": 20260718
+}
