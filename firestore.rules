@@ -3,15 +3,13 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /studies/{studyId}/participants/{userId} {
       allow create: if request.auth != null
-                    && request.auth.uid == userId
-                    && request.resource.data.uid == userId;
+                    && request.auth.uid == userId;
       allow read, update: if request.auth != null && request.auth.uid == userId;
       allow delete: if false;
 
       match /responses/{caseId} {
         allow create, read, update: if request.auth != null
-                                    && request.auth.uid == userId
-                                    && request.resource.data.uid == userId;
+                                    && request.auth.uid == userId;
         allow delete: if false;
       }
     }
@@ -19,15 +17,13 @@ service cloud.firestore {
     // Legacy pilot path retained read/write-compatible so old results remain archived.
     match /participants/{userId} {
       allow create: if request.auth != null
-                    && request.auth.uid == userId
-                    && request.resource.data.uid == userId;
+                    && request.auth.uid == userId;
       allow read, update: if request.auth != null && request.auth.uid == userId;
       allow delete: if false;
 
       match /responses/{caseId} {
         allow create, read, update: if request.auth != null
-                                    && request.auth.uid == userId
-                                    && request.resource.data.uid == userId;
+                                    && request.auth.uid == userId;
         allow delete: if false;
       }
     }
