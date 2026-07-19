@@ -8,8 +8,7 @@ Complete `current_truth` (`current|historical|uncertain`), `authorization`
 (`allowed|wrong_purpose|denied|unresolved`), `disclosure` (`safe|restricted|none|unresolved`),
 `evidence_sufficiency` (`sufficient|insufficient|conflicting`), and one or more
 `permitted_actions` (`expose|redact|suppress|refuse|abstain`). Give required
-confidence from 1 (guessing) to 5 (very confident). Decisive evidence and the
-short rationale are optional.
+confidence from 1 (guessing) to 5 (very confident).
 
 Decision meanings:
 

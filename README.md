@@ -9,7 +9,7 @@ Browser-based independent annotation rerun for three complete Prolific participa
 - automatically redirects participants after the 30th Firebase save to Prolific completion code `C1HLTWWJ`;
 - requires a perfect six-question, page-by-page comprehension check before the real cases;
 - warns about internally inconsistent judgment/action combinations;
-- requires the four judgment fields, action, and confidence; evidence and rationale are optional;
+- requires the four judgment fields, action, and confidence;
 - stores rerun data under a new study-scoped Firestore path so prior pilot labels remain archived but cannot enter rerun analysis.
 
 ## Required Firebase setup
