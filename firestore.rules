@@ -1,6 +1,19 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Active balanced formal study.
+    match /studies/requester-minimal-pairs-v3-formal-balanced20-20260720/participants/{userId} {
+      allow create, read, update: if request.auth != null
+                                  && request.auth.uid == userId;
+      allow delete: if false;
+
+      match /responses/{caseId} {
+        allow create, read, update: if request.auth != null
+                                    && request.auth.uid == userId;
+        allow delete: if false;
+      }
+    }
+
     // Active guided rerun. Keep this literal path so the live study does not
     // depend on a broad studyId wildcard when security rules are evaluated.
     match /studies/requester-minimal-pairs-v3-pilot-guided-20260719/participants/{userId} {

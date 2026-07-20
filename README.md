@@ -1,13 +1,15 @@
-# Requester minimal-pairs v3 pilot
+# Requester minimal-pairs v3 formal study
 
-Browser-based independent annotation rerun for three complete Prolific participants. The app:
+Browser-based independent annotation study for Prolific participants. The app:
 
 - reads `PROLIFIC_PID`, `STUDY_ID`, and `SESSION_ID` from Prolific URL parameters;
 - signs each participant into Firebase anonymously;
 - saves consent, each judgment, and completion state to Cloud Firestore;
 - keeps a local browser recovery copy for interrupted-session recovery;
-- automatically redirects participants after the 30th Firebase save to Prolific completion code `C1HLTWWJ`;
-- requires a perfect eight-question, page-by-page comprehension check, including applied purpose and redact-versus-abstain cases;
+- presents 20 judgments balanced across the five actions (four each);
+- automatically redirects participants after the 20th Firebase save to Prolific completion code `C1HLTWWJ`;
+- keeps only one essential step-by-step practice example;
+- requires a perfect six-question, page-by-page comprehension check, including applied purpose and redact-versus-abstain cases;
 - blocks internally inconsistent judgment/action combinations until they are revised;
 - requires the four judgment fields, action, and confidence;
 - stores rerun data under a new study-scoped Firestore path so prior pilot labels remain archived but cannot enter rerun analysis.
@@ -20,15 +22,15 @@ In Firebase project `agentmemory-7e124`:
 2. Create a **Cloud Firestore** database.
 3. Merge this study's rules into the project's active Firestore ruleset. Do **not** deploy this repository's rules file by itself: this Firebase project is shared with another study, and a standalone deploy would overwrite that study's rules.
 
-Rerun responses are stored under `studies/requester-minimal-pairs-v3-pilot-guided-20260719/participants/{anonymousUid}/responses/{caseId}`. The rules let an anonymous account access only its own records and do not allow browser-side deletion. Prior pilot data under every legacy path is retained for audit only and must be excluded from rerun analysis.
+Formal responses are stored under `studies/requester-minimal-pairs-v3-formal-balanced20-20260720/participants/{anonymousUid}/responses/{caseId}`. The rules let an anonymous account access only its own records and do not allow browser-side deletion. Prior pilot data remains under its legacy path and must not enter the formal analysis.
 
-## Rerun protocol
+## Formal protocol
 
-- Recruit three participants who each complete all 30 judgments.
-- Estimate 45–60 minutes and compensate accordingly.
-- Require all eight comprehension questions to be answered correctly before annotation.
-- Exclude every label from the earlier incomplete pilot from agreement calculations.
-- Compute exact action agreement, Fleiss' kappa, family-level unresolved/adjudication rates, three-way disagreement, and median confidence only after all 90 new judgments are present.
+- Give every rater the same 20 judgments: four expose, four redact, four suppress, four refuse, and four abstain.
+- Estimate approximately 45 minutes and compensate accordingly.
+- Require all six comprehension questions to be answered correctly before annotation.
+- Exclude every pilot label from formal agreement calculations.
+- Compute exact action agreement, Fleiss' kappa, family-level unresolved/adjudication rates, three-way disagreement, and median confidence only among complete 20-response participants.
 
 ## Prolific study URL
 
